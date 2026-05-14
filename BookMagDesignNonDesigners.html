@@ -1,0 +1,945 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<style>
+/* 3) Текстовая область Typora (#write) — ровно 319×514.4 pt, по центру страницы */
+#write {
+  width: 319pt;
+  height: 514.4pt;
+
+  /* Центрирование: горизонталь через auto, вертикаль — точным верхним полем */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc((841.8898pt - 514.4pt) / 2);
+  margin-bottom: 0;
+
+  /* Без масштабирования */
+  transform: none;
+  zoom: 1;
+}
+
+/* Масштаб изображений */
+img {
+  max-width: 50% !important; /* половина ширины страницы */
+  height: auto !important;
+  display: block;
+  margin: 1em auto; /* центрирование */
+}
+
+/* ===== Типографика (как вы задали) ===== */
+
+/* Основной текст */
+#write, #write p, #write li, #write blockquote, #write table, #write td, #write th {
+  font-family: 'MetaSerifPro-Light', 'Meta Serif Pro Light', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 11pt;
+  line-height: 14.8pt;      /* фиксированный интерлиньяж */
+  margin: 0;
+  padding: 0;
+}
+
+/* Интервал перед абзацем */
+#write p {
+  margin-top: 18.6pt;
+}
+
+#write h1 {
+    font-family: Noto Sans Black, sans-serif !important;
+    font-style: normal;
+    font-size: 22pt;
+    line-height: 22pt;
+    text-transform: uppercase;
+    margin-top: 50.7pt !important;
+    margin-bottom: 0;
+}
+
+#write h2 {
+    margin-top: 41.4pt;
+}
+
+#write h3 {
+    margin-top: 36.8pt;
+}
+
+#write h4 {
+    margin-top: 32.2pt;
+}
+
+#write h5 {
+    margin-top: 25.3pt;
+}
+
+#write h6 {
+    margin-top: 25.3pt;
+}
+
+ul li p {
+    margin-block-start: 6pt !important;
+    margin-block-end: 12pt !important;
+}
+
+ol li p {
+    margin-block-start: 6pt !important;
+    margin-block-end: 12pt !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+
+h1 {
+    border-bottom: none !important;
+}
+
+h2 {
+    font-family: Noto Sans Bold, sans-serif !important;
+    text-transform: uppercase;
+    font-size: 18pt;
+    line-height: 18pt;
+    border-bottom: none !important;
+}
+
+h3 {
+    font-family: Noto Sans Medium, sans-serif !important;
+    font-size: 16pt;
+    line-height: 16pt;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: Noto Sans Regular, sans-serif !important;
+    font-size: 14pt;
+    line-height: 14pt;
+    text-transform: uppercase;
+}
+
+h5 {
+    font-family: Noto Sans Light, sans-serif !important;
+    font-size: 11pt;
+    line-height: 11pt;
+    text-transform: uppercase;
+}
+
+h6 {
+    font-family: Noto Sans Light, sans-serif !important;
+    font-size: 11pt;
+    line-height: 11pt;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.CodeMirror-lines {
+    font-family: Noto Sans Regular, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 8pt !important;
+    line-height: 11.8pt !important;
+}
+
+#write blockquote {
+    padding-left: 6pt;
+    margin-top: 20pt;
+    margin-bottom: 20pt;
+}
+
+#write blockquote p {
+    padding-left: 6pt;
+    font-size: 16pt !important;
+    line-height: 18pt !important;
+}
+
+.task-list-item.md-task-list-item p {
+    font-family: Noto Sans Regular, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 11pt !important;
+    line-height: 14.8pt !important;
+}
+
+code {
+    font-family: Noto Sans Regular, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 11pt !important;
+    line-height: 20pt !important;
+}
+
+table, table th, table td {
+    font-family: "Noto Sans Regular", sans-serif !important;
+    font-weight: 400;
+    font-size: 11pt !important;
+    line-height: 14.8pt !important;
+    padding: 6px 13px !important;
+}
+
+table th {
+    font-weight: bold !important;
+}
+
+/* === Заголовок Alert === */
+.md-alert-text {
+    font-family: Noto Sans Light, sans-serif !important;
+}
+
+/* === Отступы для всех Alert === */
+.md-alert {
+    margin-top: 16pt;
+    margin-bottom: 16px;
+}
+
+/* === Абзацы внутри Note === */
+.md-alert.md-alert-note.note p {
+  font-family: Noto Sans Regular, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 9pt !important;
+  line-height: 12.8pt !important;
+  margin-top: 0pt !important;
+  margin-bottom: 6pt !important;
+  color: #333;
+}
+
+.md-alert.md-alert-note.note h5 {
+  margin-top: 12pt !important;
+  margin-bottom: 10pt !important;
+}
+
+/* === Списки внутри Note === */
+.md-alert.md-alert-note.note ul {
+  margin-top: 6pt !important;
+  margin-bottom: 12pt !important;
+  padding-left: 16pt;
+}
+
+/* Элементы списка */
+.md-alert.md-alert-note.note li {
+  margin-bottom: 4pt;
+}
+
+/* === Абзацы внутри Tip === */
+.md-alert.md-alert-tip.tip p {
+  font-family: Noto Sans Regular, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 9pt !important;
+  line-height: 12.8pt !important;
+  margin-top: 0pt !important;
+  margin-bottom: 6pt !important;
+  color: #333;
+}
+
+.md-alert.md-alert-tip.tip h5 {
+  margin-top: 12pt !important;
+  margin-bottom: 10pt !important;
+}
+
+/* === Списки внутри Tip === */
+.md-alert.md-alert-tip.tip ul {
+  margin-top: 6pt !important;
+  margin-bottom: 12pt !important;
+  padding-left: 16pt;
+}
+
+/* Элементы списка */
+.md-alert.md-alert-tip.tip li {
+  margin-bottom: 4pt;
+}
+
+/* === Абзацы внутри Important === */
+.md-alert.md-alert-important.important p {
+  font-family: Noto Sans Regular, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 9pt !important;
+  line-height: 12.8pt !important;
+  margin-top: 0pt !important;
+  margin-bottom: 6pt !important;
+  color: #333;
+}
+
+.md-alert.md-alert-important.important h5 {
+  margin-top: 12pt !important;
+  margin-bottom: 10pt !important;
+}
+
+/* === Списки внутри Important === */
+.md-alert.md-alert-important.important ul {
+  margin-top: 6pt !important;
+  margin-bottom: 12pt !important;
+  padding-left: 16pt;
+}
+
+/* Элементы списка */
+.md-alert.md-alert-important.important li {
+  margin-bottom: 4pt;
+}
+
+/* === Абзацы внутри Warning === */
+.md-alert.md-alert-warning.warning p {
+  font-family: Noto Sans Regular, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 9pt !important;
+  line-height: 12.8pt !important;
+  margin-top: 0pt !important;
+  margin-bottom: 6pt !important;
+  color: #333;
+}
+
+.md-alert.md-alert-warning.warning h5 {
+  margin-top: 12pt !important;
+  margin-bottom: 10pt !important;
+}
+
+/* === Списки внутри Warning === */
+.md-alert.md-alert-warning.warning ul {
+  margin-top: 6pt !important;
+  margin-bottom: 12pt !important;
+  padding-left: 16pt;
+}
+
+/* Элементы списка */
+.md-alert.md-alert-warning.warning li {
+  margin-bottom: 4pt;
+}
+
+/* === Абзацы внутри Caution === */
+.md-alert.md-alert-caution.caution p {
+  font-family: Noto Sans Regular, sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 9pt !important;
+  line-height: 12.8pt !important;
+  margin-top: 0pt !important;
+  margin-bottom: 6pt !important;
+  color: #333;
+}
+
+.md-alert.md-alert-caution.caution h5 {
+  margin-top: 12pt !important;
+  margin-bottom: 10pt !important;
+}
+
+/* === Списки внутри Caution === */
+.md-alert.md-alert-caution.caution ul {
+  margin-top: 6pt !important;
+  margin-bottom: 12pt !important;
+  padding-left: 16pt;
+}
+
+/* Элементы списка */
+.md-alert.md-alert-caution.caution li {
+  margin-bottom: 4pt;
+}
+</style>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title></title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='1'><span>1</span></h1><h1 id='дизайн-книг-и-журналов-для-тех-кто-не-занимается-дизайном'><span>Дизайн книг и журналов для тех, кто не занимается дизайном</span></h1><p><span>Дизайн книг и журналов играет важнейшую роль в нашей жизни. Он заключается в том, чтобы собрать воедино данные, фотографии и иллюстрации, чтобы помочь людям узнать что-то новое или удовлетворить свою страсть к чтению о том, что им нравится. Хороший дизайн может помочь продать качественный контент, а плохой дизайн может помешать достучаться до аудитории. В некоторых случаях дизайн может стать путеводной звездой для сложного контента. Он также может создать красивую и радостную атмосферу, помогая читателю получать удовольствие от чтения.</span></p><p><span>Adobe InDesign — мощное приложение для оформления книг и журналов. Если вы не дизайнер, но хотите научиться Adobe InDesign и профессионально работать с его инструментами и функциями, в этой книге вы найдете все необходимое.</span></p><p><span>Во-первых, вам нужно разобраться в концепциях дизайна. В этой главе мы расскажем о мощном и успешном процессе проектирования. Эта глава предназначена для тех, кто не связан с дизайном, но хотел бы узнать о дизайне в целом, а не только о приложении Adobe InDesign. В ней рассказывается о процессе проектирования, о том, как планировать дизайн, как черпать вдохновение, как набрасывать идеи и готовить их к реализации.</span></p><p><span>В этой главе мы рассмотрим следующие темы:</span></p><ul><li><p><span>Знакомство с процессом создания книг и журналов</span></p></li><li><p><span>Как мыслить как дизайнер</span></p></li><li><p><span>Behance.net — учимся у других</span></p></li><li><p><span>Сбор ресурсов</span></p></li><li><p><span>Эскиз идеи на бумаге</span></p></li><li><p><span>Подготовка к реализации проекта</span></p></li></ul><p>&nbsp;</p><h2 id='технические-требования'><span>Технические требования</span></h2><p><span>Для изучения Adobe InDesign вам необходимо иметь базовые навыки работы с компьютером и его операционной системой.</span></p><p><span>Вам пока не нужно использовать Adobe InDesign 2020, поэтому мы расскажем, как установить приложение, в</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark7'><span> главе 2</span></a><span>, «Начало работы с Adobe InDesign 2020».</span></p><p><span>Посмотрите следующие видео, чтобы увидеть код каждой главы в действии</span><a href='http://bit.ly/Mastering-Adobe-InDesign-2020'><span> http://bit.ly/</span></a><span> </span><a href='http://bit.ly/Mastering-Adobe-InDesign-2020'><span>Mastering-Adobe-InDesign-2020</span></a><span>.</span></p><h2 id='введение-в-процесс-создания-книг-и-журналов'><span>Введение в процесс создания книг и журналов</span></h2><p><span>Дизайн книг и журналов — это язык, в котором для общения с читателями используются текст, фотографии и иллюстрации. Adobe InDesign — идеальный инструмент для создания такого визуального общения. Дизайн книг и журналов впечатляет: он включает в себя огромный и разнообразный мир фотографий и статей.</span></p><p><span>У книг и журналов разные темы, стили и макеты — у каждого из них своя атмосфера, цель и точка зрения, которые определяют структуру дизайна. У дизайна разные цели и множество факторов, влияющих на стиль оформления. Эти цели и факторы порождают бесконечное множество идей. Давайте рассмотрим некоторые факторы и элементы дизайна на следующей схеме:</span></p><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-1.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.1. Факторы и элементы оформления книг и журналов</span></p><p><span>Чтобы разобраться в рис. 1.1, давайте рассмотрим пример. Если мы планируем создать книгу или журнал об архитектуре и дизайне интерьера, мы не будем начинать с технической части, то есть с приложения Adobe InDesign, а начнем с идеи, то есть с дизайнерской части.</span></p><p><span>В части дизайна есть факторы, которые влияют на дизайн и помогают нам выбирать элементы дизайна; таким образом, в нашем случае и на примере нашего проекта темой является архитектура и дизайн интерьера, и она может быть ориентирована на конкретную культуру например, европейскую, африканскую, арабскую или индийскую. В каждой культуре есть свои цвета, формы и стили оформления. Для оформления книги или журнала по архитектуре и дизайну интерьера рекомендуется использовать фотографии, а не текст, в то время как определенные цвета, связанные с определенными культурами, сделают дизайн более ярким. Таким образом, и тема и культура являются факторами, которыми дизайнер руководствуется при выборе элементов дизайна , таких как текст, фотографии, формы, фон и цвета.</span></p><p><span>Кроме того, в зависимости от того, будет ли это книга или журнал, дизайнер выберет подходящий размер страницы, исходя из стандартных размеров, и цветовой режим, соответствующий цветам чернил для печати, как мы узнаем из</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark11'><span> главы 3</span></a><span>, «Создание вашего первого документа», и</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark12'><span> главы 5</span></a><span>, «Раскрашивание вашего дизайна».</span></p><p><span>Это был всего лишь пример для наглядности. В ходе работы над этой книгой мы будем практиковаться в использовании этих факторов и элементов. Чтобы создать качественную книгу или журнал, нужно знать, что привлекает читателей!</span></p><h3 id='вовлечение-читателя'><span>Вовлечение читателя</span></h3><p><span>Успешный дизайн — это дизайн, который может обеспечить высокий уровень вовлеченности читателя. Поэтому, если вы хотите привлечь внимание читателя, вам нужно продумать три этапа вовлечения:</span></p><ul><li><p><span>Первое впечатление читателей: это показатель заинтересованности читателей в вашем контенте. Поэтому вам нужно использовать элементы, которые сразу привлекают внимание, в том числе фотографии, фоновые цвета и основные заголовки, — они произведут отличное первое впечатление.</span></p></li><li><p><span>Подзаголовки и короткие абзацы: эти элементы побуждают читателя продолжать чтение. На этом этапе важно, чтобы подзаголовки были привлекательными, а абзацы — короткими.</span></p></li><li><p><span>Полная вовлеченность: Если вам удастся выполнить первые два шага, читатель будет полностью вовлечен в процесс. Вы можете поддерживать вовлеченность, используя удобные элементы дизайна для каждой темы в вашей книге или журнале. На этом этапе можно сказать, что ваш дизайн успешен.</span></p></li></ul><p><span>Чтобы успешно реализовать три этапа вовлечения, вам нужно использовать соответствующие элементы дизайна, которые отражают назначение книги или журнала. Помните, что ваш дизайн всегда должен соответствовать назначению.</span></p><h3 id='целенаправленный-дизайн'><span>Целенаправленный дизайн</span></h3><p><span>Идентичность вашей книги или журнала определяется различными факторами, и назначение — один из важнейших факторов, влияющих на дизайн. Книга или журнал могут быть научными или развлекательными, формальными или неформальными; они могут быть наполнены информацией и опираться на текст или на фотографии.</span></p><p><span>Кроме того, выбор цвета зависит от цели дизайна. В книге или журнале о медитации, здоровье или природе будут использоваться такие цвета, как белый, синий и зеленый, которые соответствуют тематике, и они будут отличаться от цветов, которые могут использоваться в книге или журнале о дизайне мебели. Кроме того, выбор между большим количеством белых полей и сжатым текстом зависит от цели.</span></p><p><span>Текстовые шрифты, стили, размер, фотографии, их расположение, ориентация и тональность — каждый элемент подчиняется определенной цели. Цель — это всегда важный фактор, определяющий дизайн.</span></p><p><span>В этой книге многие факторы и идеи, связанные с дизайном книг и журналов, воплотятся в реальные проекты. В каждой главе вы найдете информацию о том, как узнать больше об инструментах, опциях и секретах Adobe InDesign. Кроме того, вы найдете пошаговые руководства, которые помогут вам освоить процесс проектирования и приложение.</span></p><p><span>Мы приглашаем вас ознакомиться с этими идеями и набросками и воплотить их в жизнь в виде книг и журналов. Дело не только в освоении приложения, но и в творческом подходе к дизайну и его эффективном применении с помощью Adobe InDesign.</span></p><p><span>Чтобы создать успешный дизайн, нужно мыслить как дизайнер, и это наша следующая важная тема.</span></p><h2 id='как-мыслить-как-дизайнер'><span>Как мыслить как дизайнер</span></h2><p><span>Дизайнеры могут быть талантливыми, креативными и фонтанировать идеями, но так бывает не всегда. Вы можете быть творческим человеком и создавать потрясающие проекты, даже если у вас нет таланта или особых способностей. Процесс создания дизайна состоит из четко выверенных этапов, и успешное прохождение каждого из них поможет вам создать креативный дизайн.</span></p><h3 id='процесс-креативного-проектирования'><span>Процесс креативного проектирования</span></h3><p><span>Для полноценного и успешного процесса креативного проектирования необходимо пройти пять этапов, которые помогут сделать ваш дизайн эффективным, креативным и инновационным. Вот эти этапы:</span></p><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-2.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.2. Процесс креативного проектирования</span></p><ol><li><p><span>Понимание цели: с этого шага нужно начинать. Чем точнее вы сформулируете цель, тем успешнее будет ваш дизайн. Для этого вам нужно знать о бизнесе, отрасли, услуге или продукте, для которого вы создаете дизайн, о цели дизайна и вашей целевой аудитории. Цель влияет на все элементы дизайна, поэтому убедитесь, что вы хорошо ее понимаете.</span></p></li><li><p><span>Исследования: это второй этап. На нем вы начинаете изучать бизнес, отрасль, услугу или продукт, для которого создаете дизайн. Благодаря исследованиям вам будет проще понять, какие темы, цвета, шрифты и изображения следует использовать в этой сфере. Поиск существующих дизайнов также поможет вам вдохновиться и лучше понять, что именно вы собираетесь создавать.</span></p></li><li><p><span>Используйте карандаш и бумагу: делайте заметки и зарисовывайте идеи, которые привлекли ваше внимание, — они помогут вам создать успешный дизайн. Нарисуйте свой собственный эскиз, чтобы визуализировать идею, независимо от того, как она будет реализована в Adobe InDesign. Это творческий процесс, в котором карандаш, бумага и наброски помогут вам отвлечься от мыслей о реализации.</span></p></li><li><p><span>Реализуйте свой дизайн: после того как вы изложили все свои мысли и идеи на бумаге, вы готовы воплотить их в жизнь. Именно здесь Adobe InDesign вступает в игру.</span></p></li><li><p><span>Завершение и презентация: после того как дизайн будет готов, можно использовать готовые шаблоны для презентации дизайна. Они называются макеты и помогают сделать дизайн более реалистичным перед печатью или публикацией. Подробнее о макетах мы расскажем в</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark23'><span> главе 13,</span></a><span> «Подготовка файла к печати и публикации».</span></p></li></ol><p><strong><span>Что такое мокап?</span></strong></p><p><span>Это прототип вашего окончательного варианта дизайна. Большинство мокапов представляют собой реальные изображения, например фотографии конечного результата, и большинство мокапов имеют .psd расширение и хорошо структурированы по слоям и группам, что позволяет заменить содержимое мокапа на содержимое вашего дизайна.</span></p><p><span>Теперь, когда вы узнали о факторах и элементах проектирования, а также о роли цели в процессе проектирования и в самом процессе проектирования, пришло время применить все эти знания к темам, которые мы рассмотрим в этой главе.</span></p><h3 id='планируем-реализацию-вашей-творческой-идеи'><span>Планируем реализацию вашей творческой идеи</span></h3><p><span>Давайте потренируемся в том, что мы уже освоили.</span></p><p><span>Итак, чтобы дизайн был успешным, нужно начать с определения цели. Затем, чтобы полностью понять цель, нужно четко представлять, для какой сферы мы создаем дизайн, на каком сообщении нужно сосредоточиться и кто наш целевой читатель.</span></p><p><span>Например, если мы планируем создать журнал о мебели, какие вопросы нам нужно задать, чтобы прояснить его цель, посыл и целевую аудиторию?</span></p><p><span>Вот некоторые из них:</span></p><ul><li><p><span>Возможно, стоит уточнить, как продается эта мебель.</span></p></li><li><p><span>В каком стиле она выполнена: классическом или современном?</span></p></li><li><p><span>Речь идет о роскоши, поэтому нет необходимости указывать цену, или же цена является важным фактором как для продавца, так и для покупателя?</span></p></li><li><p><span>Планирует ли продавец продавать квартиру покомнатно или речь идет о предметах мебели?</span></p></li></ul><p><span>Такие вопросы помогут вам понять, какова ваша цель, и создать успешный дизайн.</span></p><p><span>Итак, в заключение отметим, что у каждого бизнеса, отрасли, продукта или услуги есть свой дизайн, цель, которую необходимо достичь, требования, которые необходимо выполнить, а также целевая аудитория и предназначение.</span></p><p><span>Понимание цели, а затем поиск похожих существующих проектов очень помогают в планировании дизайна. Вопросы и ответы о дизайне приводят к пониманию цели, а затем исследованиям, которые являются стратегическим шагом, помогающим глубже понять, каким должен быть ваш успешный дизайн. Исследования — ключевой этап, как мы увидим в следующем разделе на примере одной из самых популярных платформ для демонстрации проектов — Behance.</span></p><h2 id='behancenet-----учимся-у-других'><span>Behance.net — учимся у других</span></h2><p><span>На втором этапе успешного творческого процесса исследования оказывают огромное влияние на вдохновение. Изучение чужих работ во многом помогает найти свой собственный стиль. В этом и заключается суть вдохновения: наблюдение за чужими работами и их анализ помогают найти вдохновение для собственного дизайна.</span></p><p><span>Вы можете искать другие дизайны с той же целью, изучать их элементы и то, как они выглядят в похожих проектах. В любой книге или журнале можно изучить текст, цвета, формы, фон и фотографии как основные элементы. Комбинируя эти элементы, можно создавать бесконечное множество узоров, а наблюдение за чужими работами пробудит ваше воображение и разовьет творческие способности.</span></p><p><span>Платформа Behance поможет вам проводить исследования и учиться у других. Давайте узнаем о ней побольше.</span></p><h3 id='что-такое-behance'><span>Что такое Behance?</span></h3><p><span>Behance — это платформа, объединяющая творческих людей в одно сообщество. Это лучшее место для нетворкинга, демонстрации своих творческих работ и поиска вдохновения у других. Здесь собраны творческие работы в различных жанрах и дисциплинах: фотография, обработка фотографий, графический дизайн, иллюстрации, архитектура и дизайн интерьера, изделия ручной работы, промышленный дизайн, упаковка, дизайн книг и журналов, моушн-графика и многие другие виды искусства.</span></p><p><span>Behance принадлежит Adobe, и теперь вы можете использовать одну учетную запись и для Adobe, и для Behance.</span></p><h3 id='создание-учетной-записи'><span>Создание учетной записи</span></h3><p><span>Вы можете зайти на Behance, посетив его веб-страницу или воспользовавшись приложением Adobe Creative Cloud , о котором мы расскажем далее в</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark7'><span> главе 2</span></a><span>, «Начало работы с Adobe InDesign 2020».</span></p><p><span>Если у вас нет аккаунта в Adobe и (соответственно) аккаунта на Behance, давайте создадим его вместе:</span></p><ol><li><p><span>Перейдите на</span><a href='https://www.behance.net/'><span> https://www.behance.net/</span></a><span>.</span></p></li><li><p><span>В верхней центральной части сайта нажмите кнопку «Зарегистрироваться по электронной почте» :</span></p></li></ol><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-3.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.3. Регистрация на Behance</span></p><ol start='3' ><li><p><span>Введите необходимую информацию (Адрес электронной почты, Имя, Фамилия, Пароль, Дата рождения и Страна/регион), затем нажмите Создать учетную запись:</span></p></li></ol><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-4.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.4. Ввод необходимых данных для Behance</span></p><p><span>После создания учетной записи вы можете войти в систему и стать участником Behance, чтобы пользоваться этой потрясающей платформой.</span></p><p><span>В правом верхнем углу вы видите логотип Adobe, а слева от него — аватар вашего профиля. Нажмите на него, чтобы изменить данные и настройки своей учетной записи.</span></p><p><span>Теперь, когда ваша учетная запись готова и вы можете начать свой путь на Behance, перед вами откроется множество категорий и авторов, у которых вы сможете учиться.</span></p><h3 id='поиск-своего-интереса'><span>Поиск своего интереса</span></h3><p><span>На Behance вы узнаете историю каждого проекта, узнаете, какие приложения использовались при разработке дизайна и как представить свои идеи, а также познакомитесь с разными подходами к сочетанию цветов и макетам.</span></p><p><span>Для дизайнера глаз — это камера, а память — хранилище: чем больше вы видите, тем лучше развиваете свои творческие способности и тем больше узнаете о поиске новых идей. Со временем вы сможете создать свой профиль и делиться собственными идеями, а отзывы других пользователей помогут вам совершенствоваться.</span></p><p><span>Чтобы найти нужную категорию, выполните следующие действия:</span></p><ol><li><p><span>Воспользуйтесь значком поиска и фильтрации в правом верхнем углу платформы. Он выглядит как увеличительное стекло, как показано на рисунке 1.5.</span></p></li></ol><ol start='2' ><li><p><span>Введите ключевое слово, которое вы ищете, затем нажмите Enter на клавиатуре. Вы найдете сотни дизайнов, которые станут для вас отличным источником вдохновения. Вы будете учиться, наблюдая, анализируя и сравнивая:</span></p></li></ol><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-5.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.5. Поиск по ключевому слову</span></p><p><span>Ваши результаты могут сильно отличаться от моих, поскольку Behance — очень динамичный сайт, на котором ежедневно публикуется множество проектов.</span></p><ol start='3' ><li><p><span>Вы также можете нажать на вкладку «Поиск» , чтобы найти другие категории, как показано на следующем скриншоте (превью проекта может отличаться от моего):.</span></p></li></ol><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-6.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.6. Использование вкладки «Интересное» в Behance</span></p><ol start='4' ><li><p><span>Выберите проект, который вам интересен, и изучите его содержание, историю, фотографии и информацию о дизайнере.</span></p></li></ol><p><span>В каждом проекте на Behance вы найдете значок, который оценивает дизайн, — это то же самое, что лайк в социальных сетях. Кроме того, вы можете подписаться на дизайнеров или связаться с ними, если хотите узнать больше о проекте.</span></p><p><span>Теперь, после поиска, у вас достаточно информации о подобных проектах, так что давайте соберем наши ресурсы.</span></p><p><span>Собираем ваши ресурсы</span></p><p><span>Ранее в этой главе мы говорили о дизайне как о целенаправленном процессе и хорошо это усвоили. Мы также приложили усилия для поиска похожих существующих проектов, поскольку нам нужно проанализировать несколько вариантов, чтобы составить четкое представление о том, что мы собираемся создать.</span></p><p><span>Здесь нам нужно копнуть глубже и создать уникальное произведение искусства, которое эффектно представит качественный контент. На этапе разработки творческой идеи вы спросили владельца бизнеса, какая идея лежит в основе его журнала, но здесь вам нужно сосредоточиться на том, что хотел бы прочитать читатель.</span></p><p><span>Сбор ресурсов — это этап, на котором вы собираете данные и элементы дизайна для своего проекта. После изучения бизнеса, отрасли, продукта или услуги, для которых вам нужно разработать дизайн книги или журнала, а также поиска и анализа работ конкурентов и других существующих проектов наступает время сбора ресурсов.</span></p><p><span>Сбор ресурсов и подготовка к этапу проектирования требуют глубокого понимания того, кто будет вашим читателем!</span></p><p><span>У вашей книги или журнала есть цель, они должны приносить пользу и, чтобы их выпуск был успешным, оказывать влияние, как показано на следующей иллюстрации:</span></p><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-7.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.7. Цель, ценность и влияние</span></p><p><span>Итак, чтобы понять, какую пользу может принести ваш дизайн, нам нужно больше узнать о том, что такое польза и как создать дизайн, который будет приносить пользу и оказывать влияние.</span></p><h3 id='холст-ценностного-предложения'><span>Холст Ценностного предложения</span></h3><p><span>Успешные книги и журналы, предлагающие информацию или данные в визуальном оформлении, окажут влияние на аудиторию, если дизайн будет ценным. Когда речь идет о ценности, главным судьей является читатель, и его отзывы покажут, насколько успешно была выполнена эта задача. Хороший дизайн, отвечающий всем требованиям, — не единственный залог успеха, но хороший дизайн, отвечающий требованиям и ожиданиям читателей, — залог успеха.</span></p><p><span>Если вам нужно понять, как ваша идея может повлиять на рынок и удовлетворить потребности клиентов, вам нужно разобраться в схеме ценностного предложения (VPC).</span></p><p><span>VPC — это способ изучить две составляющие, от которых зависит успех вашего продукта или услуги. В нашем случае это ценность книги или журнала, с одной стороны, и ваш читатель — с другой. В модели VPC у вашего читателя есть боль и выгода, и ваша книга или журнал должны предложить ему средство от боли и источник выгоды. Так вы сможете оказать влияние на аудиторию.</span></p><p><span>Следующая иллюстрация проясняет идею о том, что ценностное предложение — это и способ избавиться от проблем, и источник прибыли:</span></p><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-8.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.8: Карта ценностного предложения</span></p><p><span>Вы не автор контента, но вы его представляете, поэтому тщательно продумайте и соберите данные о своих читателях, как вы делали это раньше, с учетом области, для которой вы создаете дизайн.</span></p><p><span>Постарайтесь мыслить так же, как ваши читатели, и выяснить, с какими трудностями они сталкиваются при работе с похожими книгами или журналами, чтобы избежать этих проблем. Кроме того, подумайте, чего они ждут и какие преимущества хотят получить от оформления вашей книги или журнала, и сделайте все возможное, чтобы оправдать их ожидания.</span></p><p><span>Все эти анализы помогут вам понять, какие элементы дизайна окажут наибольшее влияние. Вы можете улучшить свой подход к проектированию, задавая себе следующие вопросы:</span></p><ul><li><p><span>Кто будет читать мою книгу или журнал? Здесь вы можете указать возраст, пол, уровень образования и другие характеристики своих читателей. Например, журнал об архитектуре и дизайне интерьера для профессиональных архитекторов и дизайнеров интерьера будет отличаться от журнала для людей, не связанных с этими сферами.</span></p></li><li><p><span>Что важнее для раскрытия темы: больше фотографий или больше текста, или и то, и другое? Тема поможет вам решить, как представить свою идею: написать о ней или использовать больше изображений. Например, для журналов об интерьере фотографии различных видов декора могут быть важнее текста.</span></p></li><li><p><span>Будет ли тема, для которой я планирую оформить книгу или журнал, связана с логическими фактами или с чувствами и эмоциями? Основана ли моя тема на реальности или на фантазиях? Научная она или нравственная? Ответы на эти вопросы повлияют на дизайн, его стиль, процесс выбора фотографий, шрифты и, конечно, цвета.</span></p></li><li><p><span>Это общая тема или она будет посвящена какому-то конкретному направлению? Ответив на этот вопрос, вы сможете удовлетворить интерес своих читателей, ведь дизайн для детей сильно отличается от дизайна для подростков и взрослых и так далее.</span></p></li></ul><p><span>Подобные вопросы помогут вам создать впечатляющий дизайн, и вы будете готовы к третьему этапу процесса творческого проектирования, использования карандаша и бумаги, то есть к этапу создания эскизов. Давайте поговорим об этом.</span></p><h2 id='набросайте-свою-идею-на-бумаге'><span>Набросайте свою идею на бумаге</span></h2><p><span>Карандаш и бумага — самый удобный способ полностью погрузиться в идею и стимулировать творческий процесс. Если вы начнете работу над дизайном с помощью приложений, то переключитесь с идеи на инструменты, цвета, изображения и формы. Если вы начнете с наброска, то полностью погрузитесь в идею, поэтому сосредоточьтесь на ней, а не на ее реализации — так вы добьетесь успеха.</span></p><p><span>Эскиз — это очень простой, но эффективный инструмент, который поможет вам продумать макет каждой страницы вашей книги или журнала. Это своего рода дизайн-макет, который подскажет, где разместить текст, изображения или иллюстрации. Такой подход называется раскадровкой, о чем мы расскажем в следующем разделе.</span></p><h3 id='раскадровка'><span>Раскадровка</span></h3><p><span>Раскадровка — это схематичный набросок макета ваших страниц. Ранее в этой главе мы упоминали об уровнях вовлеченности читателей и о том, что элементы дизайна и его структура могут стать ключевыми факторами для достижения максимального эффекта.</span></p><p><span>На этом этапе вам нужно решить, с чего начать: с изображения, текста или их сочетания. Также стоит подумать о длине абзацев, заголовках, подзаголовках и стиле текста. На элементы дизайна и их расположение в свободном пространстве влияет цель дизайна, а все, что мы говорили о факторах и элементах дизайна, поможет вам выбрать подходящую структуру для вашей страницы.</span></p><p><span>Создайте эскиз, визуализируйте окончательный вариант дизайна, внесите правки и подготовьте эскиз к следующему этапу реализации с помощью Adobe InDesign.</span></p><p><span>Здесь представлены различные идеи по оформлению страниц:</span></p><p><img src="https://ibrodick.github.io/w3lab.github.io/Book20and20Magazine20Design20for20Non-Designers-9.jpg" referrerpolicy="no-referrer" alt="img"></p><p><span>Рисунок 1.9: Идеи по оформлению страниц</span></p><p><span>Теперь мы готовы к этапу реализации вашего дизайна — четвертому этапу процесса креативного проектирования , о котором мы расскажем в следующих главах.</span></p><h2 id='готовимся-к-реализации-вашего-дизайна'><span>Готовимся к реализации вашего дизайна</span></h2><p><span>Теперь, после этого путешествия в мир дизайна, вы готовы создать свой дизайн в Adobe InDesign.</span></p><p><span>Чтобы спланировать работу над документом в Adobe InDesign, вам нужно ответить на несколько вопросов, в том числе на следующие:</span></p><ul><li><p><span>Будет ли результат в цифровом формате, в печатном виде или и то, и другое?</span></p></li><li><p><span>Сколько будет страниц?</span></p></li><li><p><span>Какой размер, соотношение сторон и ориентация страниц?</span></p></li><li><p><span>Будут ли это отдельные страницы или развороты?</span></p></li><li><p><span>Каким будет основной текст (шрифт, цвет, размер и т. д.)?</span></p></li><li><p><span>Будут ли изображения занимать всю страницу, располагаться в виде сетки или от края до края?</span></p></li><li><p><span>Каково соотношение и ориентация изображений?</span></p></li><li><p><span>Какой цветовой гамме следует придерживаться?</span></p></li><li><p><span>Какое пространство вам понадобится для вашего дизайна: много пустого пространства, мало пустого пространства, цветное пространство или пространство, заполненное текстом?</span></p></li></ul><p><span>Запомните эти вопросы. В следующих главах мы узнаем, как использовать ответы в качестве ориентира при разработке дизайна.</span></p><h2 id='резюме'><span>Резюме</span></h2><p><span>Дизайн книг и журналов — очень эффективный способ привлечь внимание читателей к содержанию.</span></p><p><span>Эта глава была введением в то, что мы будем создавать с помощью Adobe InDesign потому что, если вам не нравятся проекты, которые вы собираетесь создавать, вам не будет интересно изучать инструменты, которые вы собираетесь использовать.</span></p><p><span>Мы рассказали о том, что такое успешный дизайн и как его создать (например, как поддерживать интерес читателей, как сделать так, чтобы ваш дизайн приносил пользу, и какова его цель), чтобы вы могли разработать дизайн, который произведет впечатление.</span></p><p><span>Мы также подробно рассмотрели элементы дизайна, творческий процесс и его особенности. Кроме того, мы рассказали о Behance как об эффективной платформе, которая помогает изучать работы других людей и черпать вдохновение.</span></p><p><span>Мы обсудили, как собирать данные, ресурсы и элементы дизайна с двух точек зрения: с точки зрения цели и с точки зрения ценностного предложения. Наконец, мы поработали над скетчами и создали раскадровку, чтобы подготовиться к следующему этапу реализации. В следующих главах мы начнем работать с инструментами Adobe InDesign и реализуем все, о чем говорили в этой главе.</span></p><p><span>В</span><a href='blob:https://ibrodick.github.io/cf3585ad-5959-447b-958a-8aaf532d9105#bookmark7'><span> главе 2</span></a><span>«Начало работы с Adobe InDesign 2020» мы расскажем о причинах использования Adobe InDesign в качестве мощного инструмента для оформления книг и журналов, о том, как его установить, что нового в выпуске Adobe InDesign 2020 и как работать с приложением и его рабочим пространством.</span></p><p><span>Давайте подготовимся к предстоящему путешествию с Adobe InDesign 2020.</span></p><h2 id='вопросы'><span>Вопросы</span></h2><ol><li><p><span>Каковы пять основных элементов дизайна книг и журналов?</span></p></li><li><p><span>Каковы пять этапов творческого процесса в дизайне?</span></p></li><li><p><span>Что такое макет?</span></p></li><li><p><span>Что представляет собой платформа Behance?</span></p></li><li><p><span>Как реализовать дизайн, который произведет впечатление?</span></p></li><li><p><span>Почему так важно набросать идею перед воплощением?</span></p></li></ol><h2 id='дальнейшее-чтение'><span>Дальнейшее чтение</span></h2><ul><li><p><span>Как создавать более удобный, полезный и увлекательный контент:</span><a href='https://www.invisionapp.com/inside-design/how-to-write-engaging-content/'><span> https://www.</span></a><a href='https://www.invisionapp.com/inside-design/how-to-write-engaging-content/'><span>invisionapp.com/inside-design/how-to-write-engaging-</span></a><a href='https://www.invisionapp.com/inside-design/how-to-write-engaging-content/'><span>content/</span></a></p></li><li><p><span>Хотите мыслить как дизайнер? Попробуйте эти четыре простых упражнения: </span><a href='https://www.fastcompany.com/90228701/want-to-think-like-a-designer-try-these-4-simple-exercises'><span>https://www.</span></a><a href='https://www.fastcompany.com/90228701/want-to-think-like-a-designer-try-these-4-simple-exercises'><span>fastcompany.com/90228701/want-to-think-like-a-designer-</span></a><a href='https://www.fastcompany.com/90228701/want-to-think-like-a-designer-try-these-4-simple-exercises'><span>try-these-4-simple-exercises</span></a></p></li></ul></div></div>
+</body>
+</html>
